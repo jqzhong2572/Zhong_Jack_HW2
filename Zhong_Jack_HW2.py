@@ -2,7 +2,7 @@
 """
 Created on Thu Sep 15 19:23:57 2016
 
-@author: Jack
+@author: Jack Zhong
 """
 
 #-----------------------Question 1---------------------------      
@@ -178,11 +178,11 @@ def hapax(filepath):
     all hapaxes
     '''
 
-    string1=open(filepath).read().lower() #read file and lowercase everything
+    string1 = open(filepath).read().lower() #read file and lowercase everything
     import string
     punc = list(string.punctuation)  # exclude punctuation
     string1 = ''.join(ch for ch in string1 if ch not in punc) # strip punctuation
-    hapaxes=[] # initialize
+    hapaxes = [] # initialize
     for i in string1.split():
         if string1.count(i) == 1: # if the word is only counted once
             hapaxes.append(i) # then its a hapaxes and add it to the list
@@ -395,5 +395,3 @@ def sent_splitter(filepath):
     file1 = open(filepath,'w') # open for write
     file1.write(string) # write string into it
     file1.close() # close it
-
-
