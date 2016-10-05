@@ -4,7 +4,7 @@ Created on Thu Sep 15 19:23:57 2016
 
 @author: Jack Zhong
 """
-
+##Prof G - Nice. The only miss was phrases with punctuation.
 #-----------------------Question 1---------------------------      
 def is_palindrome(string):
     '''    
@@ -56,6 +56,8 @@ palindrome_file('Z:/1.txt')
 
 
 #-----------------------Question 2---------------------------
+##Prof G - Good. Missed phrases with mixed case - although you handled mixed
+##Prof G - case above.
 def semordnilap_file(file):
     '''
     accept a file and prints all pairs of words that are semordnilaps
@@ -83,7 +85,8 @@ print(semordnilap_file('Z:/2.txt'))
 
 
 
-#-----------------------Question 3---------------------------      
+#-----------------------Question 3--------------------------- 
+##Prof G - Nice, handled mixed case here.     
 def char_freq_table(filepath):
     '''
     function car_freq_table() accepts a file name from the user, builds a
@@ -156,8 +159,8 @@ def speak_ICAO(string,ICAOpause=1,lengthpause=3):
                 time.sleep(ICAOpause) # pause after each character
         time.sleep(lengthpause) # pause after each word
       
-    
-speak_ICAO('hello how are you',0.5,2) 
+##Prof G - Nice but should handle numbers!    
+speak_ICAO('hello x 3',0.25,2) 
 
 
 
@@ -307,9 +310,12 @@ def lingo(word):
     Returns:
     clue with modified input
     '''
-    ## take care of the error if input is a word other than 5 characters     
+    ## take care of the error if input is a word other than 5 characters 
+
+    ##Prof G - Nice handling of repeated characters (see my test below)    
     
     while True:
+        ##Prof G - No prompt before taking my input?
         guess = input('') # guess a word in each iteration
         output = '' # initialize output string
         if len(guess) != 5:
@@ -324,16 +330,18 @@ def lingo(word):
                 else:
                     output += guess[i] # if it doesn't match anything
             print('Clue: ', output)
+        ##Prof G - No prompt to tell me I've guessed the correct word?
         if guess == word: # when the program is terminated
             break
     
     
-lingo('tiger')    
+lingo('catch')    
         
 
 
 
 #-----------------------Question 11-------------------------- 
+##Prof G - Works great!
 def sent_splitter(filepath):
     '''
     This function opens a txt file and works as a sentence splitter to
@@ -392,6 +400,9 @@ def sent_splitter(filepath):
         elif string[i] in punc:
             string = string[:i+1] + '\n' + string[i+2:]
             # other punctuation definitely indicates a new line
+    ##Prof G -  Should not overwrite input file without warning user. Better
+    ##Prof G - to accept output file as a parameter. User can then decide to 
+    ##Prof G - use same path and overwrite.
     file1 = open(filepath,'w') # open for write
     file1.write(string) # write string into it
     file1.close() # close it
